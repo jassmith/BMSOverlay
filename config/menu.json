@@ -1,0 +1,324 @@
+{
+  "Label": "Main Menu",
+  "ExitKey": "ESCAPE",
+  "Submenu": [
+    {
+      "Label": "AWACS",
+      "Key": "VK_Q",
+      "ExitKey": "ESCAPE",
+      "CloseMenuAfterAction": false,
+      "Submenu": [
+        {
+          "Label": "Next Page",
+          "Key": "VK_Q",
+          "CloseMenuAfterAction": false
+        },
+        {
+          "Label": "1",
+          "Key": "VK_1"
+        },
+        {
+          "Label": "2",
+          "Key": "VK_2"
+        },
+        {
+          "Label": "3",
+          "Key": "VK_3"
+        },
+        {
+          "Label": "4",
+          "Key": "VK_4"
+        },
+        {
+          "Label": "5",
+          "Key": "VK_5"
+        },
+        {
+          "Label": "6",
+          "Key": "VK_6"
+        },
+        {
+          "Label": "7",
+          "Key": "VK_7"
+        },
+        {
+          "Label": "8",
+          "Key": "VK_8"
+        },
+        {
+          "Label": "9",
+          "Key": "VK_9"
+        },
+        {
+          "Label": "10",
+          "Key": "VK_10"
+        }
+      ]
+    },
+    {
+      "Label": "Wingmen",
+      "Key": "VK_W",
+      "ExitKey": "ESCAPE",
+      "CloseMenuAfterAction": false,
+      "Submenu": [
+        {
+          "Label": "Next Page",
+          "Key": "VK_W",
+          "CloseMenuAfterAction": false
+        },
+        {
+          "Label": "1",
+          "Key": "VK_1"
+        },
+        {
+          "Label": "2",
+          "Key": "VK_2"
+        },
+        {
+          "Label": "3",
+          "Key": "VK_3"
+        },
+        {
+          "Label": "4",
+          "Key": "VK_4"
+        },
+        {
+          "Label": "5",
+          "Key": "VK_5"
+        },
+        {
+          "Label": "6",
+          "Key": "VK_6"
+        },
+        {
+          "Label": "7",
+          "Key": "VK_7"
+        },
+        {
+          "Label": "8",
+          "Key": "VK_8"
+        },
+        {
+          "Label": "9",
+          "Key": "VK_9"
+        },
+        {
+          "Label": "10",
+          "Key": "VK_10"
+        }
+      ]
+    },
+    {
+      "Label": "Elements",
+      "Key": "VK_E",
+      "ExitKey": "ESCAPE",
+      "CloseMenuAfterAction": false,
+      "Submenu": [
+        {
+          "Label": "Next Page",
+          "Key": "VK_E",
+          "CloseMenuAfterAction": false
+        },
+        {
+          "Label": "1",
+          "Key": "VK_1"
+        },
+        {
+          "Label": "2",
+          "Key": "VK_2"
+        },
+        {
+          "Label": "3",
+          "Key": "VK_3"
+        },
+        {
+          "Label": "4",
+          "Key": "VK_4"
+        },
+        {
+          "Label": "5",
+          "Key": "VK_5"
+        },
+        {
+          "Label": "6",
+          "Key": "VK_6"
+        },
+        {
+          "Label": "7",
+          "Key": "VK_7"
+        },
+        {
+          "Label": "8",
+          "Key": "VK_8"
+        },
+        {
+          "Label": "9",
+          "Key": "VK_9"
+        },
+        {
+          "Label": "10",
+          "Key": "VK_10"
+        }
+      ]
+    },
+    {
+      "Label": "Flight",
+      "Key": "VK_R",
+      "ExitKey": "ESCAPE",
+      "CloseMenuAfterAction": false,
+      "Submenu": [
+        {
+          "Label": "Next Page",
+          "Key": "VK_R",
+          "CloseMenuAfterAction": false
+        },
+        {
+          "Label": "1",
+          "Key": "VK_1"
+        },
+        {
+          "Label": "2",
+          "Key": "VK_2"
+        },
+        {
+          "Label": "3",
+          "Key": "VK_3"
+        },
+        {
+          "Label": "4",
+          "Key": "VK_4"
+        },
+        {
+          "Label": "5",
+          "Key": "VK_5"
+        },
+        {
+          "Label": "6",
+          "Key": "VK_6"
+        },
+        {
+          "Label": "7",
+          "Key": "VK_7"
+        },
+        {
+          "Label": "8",
+          "Key": "VK_8"
+        },
+        {
+          "Label": "9",
+          "Key": "VK_9"
+        },
+        {
+          "Label": "10",
+          "Key": "VK_10"
+        }
+      ]
+    },
+    {
+      "Label": "Ground",
+      "Key": "VK_T",
+      "ExitKey": "ESCAPE",
+      "CloseMenuAfterAction": false,
+      "Submenu": [
+        {
+          "Label": "Next Page",
+          "Key": "VK_T",
+          "CloseMenuAfterAction": false
+        },
+        {
+          "Label": "1",
+          "Key": "VK_1"
+        },
+        {
+          "Label": "2",
+          "Key": "VK_2"
+        },
+        {
+          "Label": "3",
+          "Key": "VK_3"
+        },
+        {
+          "Label": "4",
+          "Key": "VK_4"
+        },
+        {
+          "Label": "5",
+          "Key": "VK_5"
+        },
+        {
+          "Label": "6",
+          "Key": "VK_6"
+        },
+        {
+          "Label": "7",
+          "Key": "VK_7"
+        },
+        {
+          "Label": "8",
+          "Key": "VK_8"
+        },
+        {
+          "Label": "9",
+          "Key": "VK_9"
+        },
+        {
+          "Label": "10",
+          "Key": "VK_10"
+        }
+      ]
+    },
+    {
+      "Label": "Other",
+      "Key": "VK_Y",
+      "ExitKey": "ESCAPE",
+      "CloseMenuAfterAction": false,
+      "Submenu": [
+        {
+          "Label": "Next Page",
+          "Key": "VK_Y",
+          "CloseMenuAfterAction": false
+        },
+        {
+          "Label": "1",
+          "Key": "VK_1"
+        },
+        {
+          "Label": "2",
+          "Key": "VK_2"
+        },
+        {
+          "Label": "3",
+          "Key": "VK_3"
+        },
+        {
+          "Label": "4",
+          "Key": "VK_4"
+        },
+        {
+          "Label": "5",
+          "Key": "VK_5"
+        },
+        {
+          "Label": "6",
+          "Key": "VK_6"
+        },
+        {
+          "Label": "7",
+          "Key": "VK_7"
+        },
+        {
+          "Label": "8",
+          "Key": "VK_8"
+        },
+        {
+          "Label": "9",
+          "Key": "VK_9"
+        },
+        {
+          "Label": "10",
+          "Key": "VK_10"
+        }
+      ]
+    }
+  ]
+}

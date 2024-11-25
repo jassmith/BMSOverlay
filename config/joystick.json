@@ -1,0 +1,10 @@
+{
+  "JoystickGUID": "d6d5a170-7a03-11ef-800d-444553540000",
+  "ButtonMappings": {
+    "Up": "Button42",
+    "Down": "Button41",
+    "Left": "Button39",
+    "Right": "Button40",
+    "Select": "Button34"
+  }
+}
