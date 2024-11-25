@@ -25,6 +25,11 @@ namespace BMSOverlay
             return false; // Default to light mode if the key doesn't exist
         }
 
+        static string GetIconResourceName()
+        {
+            return IsDarkMode() ? "BMSOverlay.Resources.bmsoverlay-dark.ico" : "BMSOverlay.Resources.bmsoverlay.ico";
+        }
+
         static void MonitorThemeChanges()
         {
             SystemEvents.UserPreferenceChanged += (sender, args) =>
@@ -38,7 +43,7 @@ namespace BMSOverlay
 
         static void UpdateNotifyIcon()
         {
-            string iconResourceName = IsDarkMode() ? "BMSOverlay.Resources.bmsoverlay-dark.ico" : "BMSOverlay.Resources.bmsoverlay.ico";
+            string iconResourceName = GetIconResourceName();
 
             using (Stream? iconStream = Assembly.GetEntryAssembly()?.GetManifestResourceStream(iconResourceName))
             {
@@ -85,7 +90,7 @@ namespace BMSOverlay
 
             inputManager.Initialize();
 
-            string iconResourceName = IsDarkMode() ? "BMSOverlay.Resources.bmsoverlay-dark.ico" : "BMSOverlay.Resources.bmsoverlay.ico";
+            string iconResourceName = GetIconResourceName();
 
             Icon trayIcon;
             using (Stream? iconStream = Assembly.GetEntryAssembly()?.GetManifestResourceStream(iconResourceName))

@@ -13,7 +13,6 @@ namespace BMSOverlay
             }
             else
             {
-                // Fallback to current directory
                 return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", fileName);
             }
         }
