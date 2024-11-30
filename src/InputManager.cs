@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json;
 using SharpDX.DirectInput;
 
 namespace BMSOverlay.Input
@@ -32,7 +32,7 @@ namespace BMSOverlay.Input
                 string json = File.ReadAllText(configPath);
                 if (!string.IsNullOrWhiteSpace(json))
                 {
-                    joystickConfig = JsonConvert.DeserializeObject<JoystickConfig>(json);
+                    joystickConfig = JsonSerializer.Deserialize<JoystickConfig>(json);
                 }
             }
 
@@ -201,19 +201,14 @@ namespace BMSOverlay.Input
 
         private int GetPovValue(string direction)
         {
-            switch (direction)
+            return direction switch
             {
-                case "Up":
-                    return 0;
-                case "Right":
-                    return 9000;
-                case "Down":
-                    return 18000;
-                case "Left":
-                    return 27000;
-                default:
-                    return -1;
-            }
+                "Up" => 0,
+                "Right" => 9000,
+                "Down" => 18000,
+                "Left" => 27000,
+                _ => -1
+            };
         }
         private void InvokeAction(string actionName)
         {

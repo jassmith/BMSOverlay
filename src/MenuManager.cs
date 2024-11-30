@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Newtonsoft.Json;
+using System.Text.Json;
 using InputSimulatorStandard;
 using InputSimulatorStandard.Native;
 
@@ -54,7 +51,12 @@ namespace BMSOverlay.Menu
                 Console.WriteLine("Failed to read menu configuration file");
                 return;
             }
-            RootMenu = JsonConvert.DeserializeObject<MenuItem>(json);
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+            RootMenu = JsonSerializer.Deserialize<MenuItem>(json, options);
             CurrentSelection = 0;
         }
 
