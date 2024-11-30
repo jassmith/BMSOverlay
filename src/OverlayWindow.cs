@@ -1,13 +1,15 @@
 using GameOverlay.Drawing;
 using GameOverlay.Windows;
 using BMSOverlay.Menu;
+using Microsoft.Win32;
+using System.Runtime.InteropServices;
 
 namespace BMSOverlay
 {
     public class OverlayWindow : IDisposable
     {
         private readonly GameOverlay.Drawing.Graphics _graphics;
-        private readonly GraphicsWindow _window;
+        private GraphicsWindow _window;
         private readonly MenuManager _menuManager;
 
         private GameOverlay.Drawing.SolidBrush _backgroundBrush;
@@ -16,13 +18,11 @@ namespace BMSOverlay
         private GameOverlay.Drawing.SolidBrush _selectedItemBGBrush;
         private GameOverlay.Drawing.Font _font;
 
+        private Thread? _windowThread;
+
         public OverlayWindow(MenuManager menuManager)
         {
             _menuManager = menuManager;
-
-            // Get screen dimensions
-            int screenWidth = GetPrimaryMonitorWidth();
-            int screenHeight = GetPrimaryMonitorHeight();
 
             _graphics = new GameOverlay.Drawing.Graphics()
             {
@@ -32,27 +32,38 @@ namespace BMSOverlay
                 TextAntiAliasing = true
             };
 
+            CreateOverlayWindow();
+
+            menuManager.OnMenuVisibilityChanged += (isVisible) =>
+            {
+                if (_window != null)
+                    _window.IsVisible = isVisible;
+            };
+
+            SystemEvents.DisplaySettingsChanged += OnDisplaySettingsChanged;
+        }
+
+        private void CreateOverlayWindow()
+        {
+            int screenWidth = GetPrimaryMonitorWidth();
+            int screenHeight = GetPrimaryMonitorHeight();
+
             _window = new GraphicsWindow(0, 0, screenWidth, screenHeight, _graphics)
             {
                 FPS = 60,
                 IsTopmost = true,
-                IsVisible = true
+                IsVisible = _menuManager.IsMenuVisible
             };
 
             // Set up event handlers
             _window.SetupGraphics += SetupGraphics;
             _window.DestroyGraphics += DestroyGraphics;
             _window.DrawGraphics += DrawGraphics;
-
-            menuManager.OnMenuVisibilityChanged += (isVisible) =>
-            {
-                _window.IsVisible = isVisible;
-            };
         }
 
         public void Start()
         {
-            var thread = new Thread(() =>
+            _windowThread = new Thread(() =>
             {
                 _window.Create();
                 _window.Join();
@@ -60,8 +71,8 @@ namespace BMSOverlay
             {
                 IsBackground = true
             };
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
+            _windowThread.SetApartmentState(ApartmentState.STA);
+            _windowThread.Start();
         }
 
         private void SetupGraphics(object? sender, SetupGraphicsEventArgs e)
@@ -81,6 +92,7 @@ namespace BMSOverlay
             _backgroundBrush?.Dispose();
             _menuItemBrush?.Dispose();
             _selectedItemBrush?.Dispose();
+            _selectedItemBGBrush?.Dispose();
         }
 
         private void DrawGraphics(object? sender, DrawGraphicsEventArgs e)
@@ -113,6 +125,25 @@ namespace BMSOverlay
             }
         }
 
+        private void OnDisplaySettingsChanged(object? sender, EventArgs e)
+        {
+            UpdateWindowSizeAndPosition();
+        }
+
+        private void UpdateWindowSizeAndPosition()
+        {
+            if (_window == null)
+                return;
+
+            int screenWidth = GetPrimaryMonitorWidth();
+            int screenHeight = GetPrimaryMonitorHeight();
+
+            _window.Resize(screenWidth, screenHeight);
+            _window.Move(0, 0);
+
+            _window.Recreate();
+        }
+
         private int GetPrimaryMonitorWidth()
         {
             return GetSystemMetrics(SystemMetric.SM_CXSCREEN);
@@ -123,7 +154,7 @@ namespace BMSOverlay
             return GetSystemMetrics(SystemMetric.SM_CYSCREEN);
         }
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        [DllImport("user32.dll")]
         private static extern int GetSystemMetrics(SystemMetric smIndex);
 
         private enum SystemMetric
@@ -134,8 +165,16 @@ namespace BMSOverlay
 
         public void Dispose()
         {
+            SystemEvents.DisplaySettingsChanged -= OnDisplaySettingsChanged;
+
             _window?.Dispose();
             _graphics?.Dispose();
+
+            if (_windowThread != null && _windowThread.IsAlive)
+            {
+                _windowThread.Join();
+                _windowThread = null;
+            }
         }
     }
 }
