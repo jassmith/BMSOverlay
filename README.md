@@ -204,9 +204,9 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## Acknowledgements
 
-- **[GameOverlay.Net](https://github.com/DasoX/GameOverlay.Net)**: For providing the overlay functionality.
+- **[GameOverlay.Net](https://github.com/michel-pi/GameOverlay.Net)**: For providing the overlay functionality.
 - **[SharpDX](https://github.com/sharpdx/SharpDX)**: Used for joystick input handling.
-- **[InputSimulatorStandard](https://github.com/michaelnoonan/inputsimulatorstandard)**: For simulating keyboard input.
+- **[InputSimulatorStandard](https://github.com/GregsStack/InputSimulatorStandard)**: For simulating keyboard input.
 - **[Newtonsoft.Json](https://www.newtonsoft.com/json)**: For JSON serialization and deserialization.
 
 ---
