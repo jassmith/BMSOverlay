@@ -156,7 +156,7 @@ If you wish to build the application from source, follow these steps:
 
 ### Prerequisites
 
-- **.NET 6 SDK**: [Download and install](https://dotnet.microsoft.com/download/dotnet/6.0).
+- **.NET 8 SDK**: [Download and install](https://dotnet.microsoft.com/download/dotnet/8.0).
 - **Visual Studio Code** or **Visual Studio 2022**: Optional, for editing and building the project.
 - **Git**: To clone the repository.
 
